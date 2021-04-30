@@ -1,25 +1,19 @@
-# New Project
+# Repro Tailwind JIT + Snowpack requiring snowpack restarts
 
-> ✨ Bootstrapped with Create Snowpack App (CSA).
+## Repro
 
-## Available Scripts
+1. `yarn`
+2. `yarn start`
+3. Change `text-red-900` to `text-blue-900` and save the file.
 
-### npm start
+## Expected
 
-Runs the app in the development mode.
-Open http://localhost:8080 to view it in the browser.
+Tailwind JIT picks up the change and rebuilds the CSS and HMR loads the new class.
 
-The page will reload if you make edits.
-You will also see any lint errors in the console.
+## Actual
 
-### npm run build
+HMR loads the new class, but the CSS is not rebuilt so it does not have the `text-blue-900` style.
 
-Builds a static copy of your site to the `build/` folder.
-Your app is ready to be deployed!
+## Notes
 
-**For the best production performance:** Add a build bundler plugin like "@snowpack/plugin-webpack" to your `snowpack.config.js` config file.
-
-### npm test
-
-Launches the application test runner.
-Run with the `--watch` flag (`npm test -- --watch`) to run in interactive watch mode.
+This plugin improves things: https://github.com/jadex/snowpack-plugin-tailwindcss-jit

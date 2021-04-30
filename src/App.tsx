@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import logo from './logo.svg';
-import './App.css';
 
 interface AppProps {}
 
@@ -15,25 +14,14 @@ function App({}: AppProps) {
   // Return the App component.
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <p>
-          Page has been open for <code>{count}</code> seconds.
-        </p>
-        <p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </p>
-      </header>
+      <p className="text-red-900 w-[70ch]">
+        Change the above class to blue, rather than red. You will need to
+        restart snowpack, but you should only have to refresh the page at a
+        minimum. Ideally it would HMR.
+      </p>
+      <p>
+        Page has been open for <code>{count}</code> seconds.
+      </p>
     </div>
   );
 }
